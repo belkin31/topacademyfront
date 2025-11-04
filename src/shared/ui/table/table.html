@@ -1,0 +1,27 @@
+<table class="table">
+    <thead>
+            <tr>
+                <template v-for="column in getColumns()" :key="column">
+                    <slot name="head" v-bind="{column}">
+                        <td class="table__head-column">
+                            {{column}}
+                        </td>
+                    </slot>
+                </template>
+            </tr>
+    </thead>
+    <tbody>
+        <slot name="bodyContainer" v-bind="{options, getColumns}">
+            <template v-for="option in options">
+                <slot name="body" v-bind="option">
+                    <tr>
+                        <td v-for="column in getColumns()" :key="column">
+                            {{option[column]}}
+                        </td>
+                    </tr>
+                </slot>
+            </template>
+        </slot>
+
+    </tbody>
+</table>
