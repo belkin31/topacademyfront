@@ -1,0 +1,10 @@
+<div class="base-input">
+	<slot name="icon"></slot>
+	<input
+		class="base-input__input"
+	  :type="typeAttr"
+		:placeholder="placeholderAttr"
+		@input="onInputChange"
+		:value="inputValue"
+	>
+</div>
